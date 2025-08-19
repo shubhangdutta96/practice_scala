@@ -1,7 +1,7 @@
-import scala.{+:, ::}
 import scala.annotation.tailrec
 import scala.collection.convert.ImplicitConversions.`map AsJavaMap`
-import scala.collection.{immutable, mutable}
+import scala.collection.mutable
+import scala.concurrent.Future
 import scala.jdk.CollectionConverters.IteratorHasAsScala
 
 object recursion extends App {
@@ -313,5 +313,27 @@ object recursion extends App {
   val prefixSumList: List[Int] = prefixSum(List(1,2,3,4,5,6))
   println(s"Prefix sum of the list: $prefixSumList")
 
+  /*import scala.concurrent.ExecutionContext.Implicits.global
+  val future = Future {
+    println(Thread.currentThread().toString)
+    Thread.sleep(5000)
+    10
+  }
+
+
+  future.map(x => println(s"Future completed with value: ${x+2}"))
+  println(Thread.currentThread().toString)
+
+  Thread.sleep(8000) // let us wait for the main thread to give enough time to run and complete the future.
+  */
+
+
+
+  case class User(name: String, age: Int)
+  val payload = User("Shubhang-Dutta", 21)
+  println(payload.toString)
 
 }
+
+
+// FROM DEV BRANCH
